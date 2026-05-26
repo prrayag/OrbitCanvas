@@ -262,9 +262,10 @@ function CanvasInner({ boardId, currentUser, initialNodes, initialEdges }) {
         />
         <MiniMap
           position="bottom-right"
-          nodeColor={() => 'rgba(220, 38, 38, 0.5)'}
-          maskColor="rgba(255, 255, 255, 0.85)"
+          nodeColor={() => 'rgba(255, 77, 45, 0.5)'}
+          maskColor="rgba(0, 0, 0, 0.6)"
           style={{ width: 140, height: 100 }}
+          className="!bg-orbit-card !border-white/[0.06] rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
         />
       </ReactFlow>
 
