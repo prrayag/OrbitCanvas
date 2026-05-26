@@ -1,0 +1,401 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════
+   ORBIT — Premium Dark Theme
+   ═══════════════════════════════════════════ */
+
+:root {
+  --orbit-bg: #0d0d0d;
+  --orbit-surface: #161616;
+  --orbit-card: #1c1c1c;
+  --orbit-card-hover: #242424;
+  --orbit-border: rgba(255, 255, 255, 0.08);
+  --orbit-border-hover: rgba(255, 255, 255, 0.15);
+  --orbit-accent: #E08455;
+  --orbit-accent-hover: #d2774a;
+  --orbit-cyan: #00d4ff;
+  --orbit-text: #f5f5f5;
+  --orbit-text-muted: #888888;
+  --orbit-text-faint: #555555;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--orbit-bg);
+  color: var(--orbit-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+  width: 100%;
+}
+
+#root {
+  min-height: 100%;
+  width: 100%;
+}
+
+/* Heading font override */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+}
+
+/* ═══════════════════════════════════════════
+   Scrollbar
+   ═══════════════════════════════════════════ */
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* ═══════════════════════════════════════════
+   React Flow Overrides
+   ═══════════════════════════════════════════ */
+
+.react-flow {
+  background-color: transparent !important;
+}
+
+.react-flow__background { opacity: 0.4; }
+
+.react-flow__controls {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04) !important;
+  color: #71717a !important;
+  width: 32px !important;
+  height: 32px !important;
+  transition: all 0.15s ease;
+}
+
+.react-flow__controls-button:hover {
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #18181b !important;
+}
+
+.react-flow__controls-button:last-child { border-bottom: none !important; }
+.react-flow__controls-button svg { fill: currentColor !important; }
+
+.react-flow__minimap {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  overflow: hidden;
+}
+
+.react-flow__edge-path { stroke: rgba(0, 212, 255, 0.4) !important; stroke-width: 2 !important; }
+.react-flow__edge-path:hover { stroke: rgba(0, 212, 255, 0.7) !important; }
+.react-flow__connection-line { stroke: var(--orbit-cyan) !important; stroke-width: 2 !important; stroke-dasharray: 5 5; }
+
+.react-flow__attribution { display: none !important; }
+
+.orbit-handle {
+  width: 8px !important;
+  height: 8px !important;
+  background: #ffffff !important;
+  border: 1.5px solid #d4d4d8 !important;
+  transition: all 0.2s ease !important;
+}
+
+.orbit-handle:hover {
+  background: #ffffff !important;
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+  transform: scale(1.2) !important;
+}
+
+/* ═══════════════════════════════════════════
+   ORBIT NODE — Premium Card Design
+   ═══════════════════════════════════════════ */
+
+.orbit-node {
+  min-width: 200px;
+  max-width: 260px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.2s ease;
+  user-select: none;
+}
+
+.orbit-node:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.orbit-node--selected {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 1px #ef4444, 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.orbit-node--streaming {
+  animation: nodeStreamPulse 2s ease-in-out infinite;
+}
+
+@keyframes nodeStreamPulse {
+  0%, 100% {
+    border-color: rgba(220, 38, 38, 0.2);
+    box-shadow: 0 0 12px rgba(220, 38, 38, 0.08);
+  }
+  50% {
+    border-color: rgba(220, 38, 38, 0.5);
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.2);
+  }
+}
+
+.orbit-node__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  cursor: grab;
+  color: #a1a1aa;
+}
+
+.orbit-node__header:active { cursor: grabbing; }
+
+.orbit-node__header-right {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.orbit-node__sparkle-btn {
+  padding: 2px 5px;
+  border: none;
+  background: transparent;
+  color: #a1a1aa;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.orbit-node:hover .orbit-node__sparkle-btn { opacity: 1; }
+.orbit-node__sparkle-btn:hover { color: #ef4444; background: rgba(0, 0, 0, 0.04); }
+.orbit-node__sparkle-btn.active { opacity: 1; color: #ef4444; background: rgba(0, 0, 0, 0.06); }
+
+.orbit-node__delete-btn {
+  padding: 2px 4px;
+  border: none;
+  background: transparent;
+  color: #a1a1aa;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.orbit-node:hover .orbit-node__delete-btn { opacity: 1; }
+.orbit-node__delete-btn:hover { color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+
+/* Node Body */
+.orbit-node__body {
+  padding: 10px 12px;
+  min-height: 36px;
+}
+
+.orbit-node__content {
+  min-height: 20px;
+}
+
+.orbit-node__title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.35;
+  color: #18181b;
+  letter-spacing: -0.01em;
+}
+
+.orbit-node__desc {
+  margin-top: 4px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #52525b;
+}
+
+.orbit-node__placeholder {
+  font-size: 11px;
+  color: #a1a1aa;
+  font-style: italic;
+}
+
+.orbit-node__textarea {
+  width: 100%;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #18181b;
+  border: none;
+  outline: none;
+  resize: none;
+  line-height: 1.45;
+}
+
+.orbit-node__textarea::placeholder { color: #a1a1aa; }
+
+/* Streaming indicator */
+.orbit-node__streaming-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.orbit-node__streaming-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--orbit-accent);
+  animation: streamDotBounce 1s ease-in-out infinite;
+}
+
+@keyframes streamDotBounce {
+  0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1.2); }
+}
+
+.orbit-node__streaming-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--orbit-accent);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════
+   Utility Components
+   ═══════════════════════════════════════════ */
+
+@layer components {
+  .orbit-glass {
+    @apply bg-orbit-card/85 backdrop-blur-md border border-orbit-border rounded-xl;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .orbit-btn-primary {
+    @apply px-5 py-2.5 bg-orbit-accent text-white font-medium rounded-lg
+           transition-all duration-200 hover:bg-orbit-accent-hover
+           active:scale-95 focus:outline-none;
+  }
+
+  .orbit-btn-ghost {
+    @apply px-5 py-2.5 bg-transparent text-orbit-text-muted font-medium rounded-lg
+           border border-orbit-border transition-all duration-200
+           hover:text-orbit-text hover:border-orbit-border-hover hover:bg-white/[0.03]
+           active:scale-95;
+  }
+
+  .orbit-input {
+    @apply w-full px-4 py-3 bg-orbit-surface border border-orbit-border rounded-lg
+           text-orbit-text placeholder:text-orbit-text-muted/50 font-mono text-sm
+           transition-all duration-200 focus:outline-none focus:border-orbit-accent/40
+           focus:ring-1 focus:ring-orbit-accent/20;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Landing — Grid / Marquee / Reveal
+   ═══════════════════════════════════════════ */
+
+.landing-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.marquee-track {
+  animation: marqueeScroll 30s linear infinite;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+.reveal-on-scroll:nth-child(3) { transition-delay: 0.2s; }
+.reveal-on-scroll:nth-child(4) { transition-delay: 0.3s; }
+
+/* Node streaming (also used for decorative mockups) */
+.node-streaming {
+  animation: nodeStreamPulse 2s ease-in-out infinite;
+}
+
+/* Cursor overlay */
+.remote-cursor {
+  transition: left 0.1s linear, top 0.1s linear;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* SparkleMenu enter */
+.menu-enter {
+  animation: menuEnter 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes menuEnter {
+  0% { transform: scale(0.9) translateY(4px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Canvas page — prevent Lenis */
+.canvas-page {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.react-flow__node { will-change: auto !important; -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; transform-origin: 0 0; }
