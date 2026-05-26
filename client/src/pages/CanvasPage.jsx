@@ -45,6 +45,7 @@ export default function CanvasPage() {
         console.warn('Could not fetch canvas state, starting fresh:', err.message);
         setInitialNodes([]);
         setInitialEdges([]);
+        setShowNameModal(true);
       } finally {
         setIsLoading(false);
       }
@@ -79,7 +80,7 @@ export default function CanvasPage() {
   }
 
   return (
-    <div className="canvas-page relative bg-[#f4f4f5]" data-lenis-prevent>
+    <div className="canvas-page relative bg-[#0d0d0d]" data-lenis-prevent>
       {/* Navbar */}
       <Navbar
         boardTitle={boardTitle}
@@ -105,7 +106,7 @@ export default function CanvasPage() {
       {/* Board ID indicator */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-40">
         <div className="flex items-center gap-2 px-3 py-1.5 bg-orbit-card/80 backdrop-blur-md border border-white/[0.06] rounded-full shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
-          <span className="text-[10px] font-mono text-black/40">Board:</span>
+          <span className="text-[10px] font-mono text-orbit-text-muted">Board:</span>
             <span className="font-mono text-[10px] text-orbit-text-muted select-all bg-white/[0.04] px-2 py-0.5 rounded cursor-text">{boardId}</span>
         </div>
       </div>
