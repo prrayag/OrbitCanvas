@@ -264,8 +264,10 @@ function CanvasInner({ boardId, currentUser, initialNodes, initialEdges }) {
           position="bottom-right"
           nodeColor={() => 'rgba(255, 77, 45, 0.5)'}
           maskColor="rgba(0, 0, 0, 0.6)"
-          style={{ width: 140, height: 100 }}
-          className="!bg-orbit-card !border-white/[0.06] rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+          maskStrokeColor="rgba(255, 255, 255, 0.1)"
+          maskStrokeWidth={1}
+          style={{ width: 140, height: 100, backgroundColor: '#1c1c1c' }}
+          className="!border-white/[0.06] rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
         />
       </ReactFlow>
 
