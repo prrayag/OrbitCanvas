@@ -1,5 +1,6 @@
 import { useState, useRef, useLayoutEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { SERVER_URL } from '../socket';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight } from 'lucide-react';
@@ -97,7 +98,7 @@ export default function Landing() {
     setIsCreating(true);
     setError('');
     try {
-      const res = await fetch('/api/boards', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ title: 'Untitled Board' }) });
+      const res = await fetch(`${SERVER_URL}/api/boards`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ title: 'Untitled Board' }) });
       if (!res.ok) throw new Error('Failed');
       const data = await res.json();
       navigate(`/canvas/${data.boardId}`);

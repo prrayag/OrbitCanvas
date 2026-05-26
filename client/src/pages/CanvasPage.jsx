@@ -5,6 +5,7 @@ import Navbar from '../components/ui/Navbar';
 import Toolbar from '../components/ui/Toolbar';
 import LoadingOverlay from '../components/ui/LoadingOverlay';
 import { useSocket } from '../hooks/useSocket';
+import { SERVER_URL } from '../socket';
 
 export default function CanvasPage() {
   const { boardId } = useParams();
@@ -21,7 +22,7 @@ export default function CanvasPage() {
   useEffect(() => {
     async function fetchState() {
       try {
-        const boardRes = await fetch(`/api/boards/${boardId}`);
+        const boardRes = await fetch(`${SERVER_URL}/api/boards/${boardId}`);
         if (boardRes.ok) {
           const board = await boardRes.json();
           const title = board.title || 'Untitled Board';
@@ -31,7 +32,7 @@ export default function CanvasPage() {
           setShowNameModal(true);
         }
 
-        const stateRes = await fetch(`/api/boards/${boardId}/state`);
+        const stateRes = await fetch(`${SERVER_URL}/api/boards/${boardId}/state`);
         if (stateRes.ok) {
           const state = await stateRes.json();
           setInitialNodes(state.nodes || []);
@@ -63,7 +64,7 @@ export default function CanvasPage() {
     setShowNameModal(false);
     
     try {
-      await fetch(`/api/boards/${boardId}`, {
+      await fetch(`${SERVER_URL}/api/boards/${boardId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: newTitle }),
