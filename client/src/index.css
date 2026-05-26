@@ -84,36 +84,36 @@ h1, h2, h3, h4, h5, h6 {
 .react-flow__background { opacity: 0.4; }
 
 .react-flow__controls {
-  background: #ffffff !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  background: var(--orbit-surface) !important;
+  border: 1px solid var(--orbit-border) !important;
   border-radius: 10px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
   overflow: hidden;
 }
 
 .react-flow__controls-button {
   background: transparent !important;
   border: none !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04) !important;
-  color: #71717a !important;
+  border-bottom: 1px solid var(--orbit-border) !important;
+  color: var(--orbit-text-muted) !important;
   width: 32px !important;
   height: 32px !important;
   transition: all 0.15s ease;
 }
 
 .react-flow__controls-button:hover {
-  background: rgba(0, 0, 0, 0.04) !important;
-  color: #18181b !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: var(--orbit-text) !important;
 }
 
 .react-flow__controls-button:last-child { border-bottom: none !important; }
 .react-flow__controls-button svg { fill: currentColor !important; }
 
 .react-flow__minimap {
-  background: #ffffff !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  background: var(--orbit-surface) !important;
+  border: 1px solid var(--orbit-border) !important;
   border-radius: 10px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
   overflow: hidden;
 }
 
@@ -126,15 +126,15 @@ h1, h2, h3, h4, h5, h6 {
 .orbit-handle {
   width: 8px !important;
   height: 8px !important;
-  background: #ffffff !important;
-  border: 1.5px solid #d4d4d8 !important;
+  background: var(--orbit-surface) !important;
+  border: 1.5px solid var(--orbit-text-muted) !important;
   transition: all 0.2s ease !important;
 }
 
 .orbit-handle:hover {
-  background: #ffffff !important;
-  border-color: #ef4444 !important;
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+  background: var(--orbit-surface) !important;
+  border-color: var(--orbit-accent) !important;
+  box-shadow: 0 0 0 3px rgba(224, 132, 85, 0.1) !important;
   transform: scale(1.2) !important;
 }
 
@@ -145,21 +145,21 @@ h1, h2, h3, h4, h5, h6 {
 .orbit-node {
   min-width: 200px;
   max-width: 260px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--orbit-card);
+  border: 1px solid var(--orbit-border);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
   transition: border-color 0.2s ease;
   user-select: none;
 }
 
 .orbit-node:hover {
-  border-color: rgba(0, 0, 0, 0.15);
+  border-color: var(--orbit-border-hover);
 }
 
 .orbit-node--selected {
-  border-color: #ef4444;
-  box-shadow: 0 0 0 1px #ef4444, 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-color: var(--orbit-accent);
+  box-shadow: 0 0 0 1px var(--orbit-accent), 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .orbit-node--streaming {
@@ -168,12 +168,12 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes nodeStreamPulse {
   0%, 100% {
-    border-color: rgba(220, 38, 38, 0.2);
-    box-shadow: 0 0 12px rgba(220, 38, 38, 0.08);
+    border-color: rgba(224, 132, 85, 0.2);
+    box-shadow: 0 0 12px rgba(224, 132, 85, 0.08);
   }
   50% {
-    border-color: rgba(220, 38, 38, 0.5);
-    box-shadow: 0 0 20px rgba(220, 38, 38, 0.2);
+    border-color: rgba(224, 132, 85, 0.5);
+    box-shadow: 0 0 20px rgba(224, 132, 85, 0.2);
   }
 }
 
@@ -182,9 +182,9 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   padding: 6px 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid var(--orbit-border);
   cursor: grab;
-  color: #a1a1aa;
+  color: var(--orbit-text-muted);
 }
 
 .orbit-node__header:active { cursor: grabbing; }
@@ -199,7 +199,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 2px 5px;
   border: none;
   background: transparent;
-  color: #a1a1aa;
+  color: var(--orbit-text-muted);
   border-radius: 4px;
   cursor: pointer;
   font-size: 11px;
@@ -208,14 +208,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .orbit-node:hover .orbit-node__sparkle-btn { opacity: 1; }
-.orbit-node__sparkle-btn:hover { color: #ef4444; background: rgba(0, 0, 0, 0.04); }
-.orbit-node__sparkle-btn.active { opacity: 1; color: #ef4444; background: rgba(0, 0, 0, 0.06); }
+.orbit-node__sparkle-btn:hover { color: var(--orbit-accent); background: rgba(255, 255, 255, 0.04); }
+.orbit-node__sparkle-btn.active { opacity: 1; color: var(--orbit-accent); background: rgba(255, 255, 255, 0.06); }
 
 .orbit-node__delete-btn {
   padding: 2px 4px;
   border: none;
   background: transparent;
-  color: #a1a1aa;
+  color: var(--orbit-text-muted);
   border-radius: 4px;
   cursor: pointer;
   opacity: 0;
@@ -225,7 +225,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .orbit-node:hover .orbit-node__delete-btn { opacity: 1; }
-.orbit-node__delete-btn:hover { color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+.orbit-node__delete-btn:hover { color: #ff4444; background: rgba(255, 68, 68, 0.1); }
 
 /* Node Body */
 .orbit-node__body {
@@ -242,7 +242,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   font-size: 13px;
   line-height: 1.35;
-  color: #18181b;
+  color: var(--orbit-text);
   letter-spacing: -0.01em;
 }
 
@@ -250,12 +250,12 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 4px;
   font-size: 11px;
   line-height: 1.45;
-  color: #52525b;
+  color: var(--orbit-text-muted);
 }
 
 .orbit-node__placeholder {
   font-size: 11px;
-  color: #a1a1aa;
+  color: var(--orbit-text-muted);
   font-style: italic;
 }
 
@@ -264,14 +264,14 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent;
   font-family: 'Inter', sans-serif;
   font-size: 13px;
-  color: #18181b;
+  color: var(--orbit-text);
   border: none;
   outline: none;
   resize: none;
   line-height: 1.45;
 }
 
-.orbit-node__textarea::placeholder { color: #a1a1aa; }
+.orbit-node__textarea::placeholder { color: var(--orbit-text-muted); }
 
 /* Streaming indicator */
 .orbit-node__streaming-indicator {

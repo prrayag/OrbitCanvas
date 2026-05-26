@@ -104,18 +104,18 @@ export default function CanvasPage() {
 
       {/* Board ID indicator */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-40">
-        <div className="flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-md border border-black/[0.06] rounded-full shadow-sm">
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-orbit-card/80 backdrop-blur-md border border-white/[0.06] rounded-full shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
           <span className="text-[10px] font-mono text-black/40">Board:</span>
-          <code className="text-[10px] font-mono text-black/70 select-all cursor-pointer">{boardId}</code>
+            <span className="font-mono text-[10px] text-orbit-text-muted select-all bg-white/[0.04] px-2 py-0.5 rounded cursor-text">{boardId}</span>
         </div>
       </div>
 
       {/* Name Board Modal */}
       {showNameModal && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/20 backdrop-blur-sm">
-          <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-6 w-[90%] max-w-md border border-black/[0.04] animate-fade-in">
-            <h2 className="text-xl font-semibold mb-2 text-black">Name your board</h2>
-            <p className="text-sm text-black/50 mb-5">Give this canvas a name to get started.</p>
+          <div className="bg-orbit-card rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] p-6 w-[90%] max-w-md border border-white/[0.06] animate-fade-in">
+              <h3 className="text-xl font-semibold text-orbit-text mb-1 tracking-tight">Name your universe</h3>
+              <p className="text-sm text-orbit-text-muted mb-5">Give this board a title before you start building.</p>
             <form onSubmit={handleNameSubmit}>
               <input
                 type="text"
@@ -123,19 +123,19 @@ export default function CanvasPage() {
                 value={tempTitle}
                 onChange={(e) => setTempTitle(e.target.value)}
                 placeholder="e.g. Q3 Roadmap Brainstorm"
-                className="w-full px-4 py-3 bg-black/[0.02] border border-black/[0.06] rounded-xl text-black focus:outline-none focus:border-black/[0.15] focus:bg-white transition-colors mb-5 placeholder-black/30"
+                className="w-full px-4 py-3 bg-orbit-surface border border-white/[0.06] rounded-xl text-orbit-text focus:outline-none focus:border-white/20 focus:bg-white/[0.02] transition-colors mb-5 placeholder-orbit-text-muted/50"
               />
               <div className="flex justify-end gap-3">
                 <button
                   type="button"
                   onClick={() => setShowNameModal(false)}
-                  className="px-4 py-2 text-sm font-medium text-black/60 hover:text-black transition-colors"
+                  className="flex-1 py-2.5 px-4 rounded-xl font-semibold text-orbit-text bg-white/[0.04] hover:bg-white/[0.08] transition-colors"
                 >
                   Skip
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-black text-white text-sm font-medium rounded-lg hover:bg-black/80 transition-colors"
+                  className="flex-1 py-2.5 px-4 bg-white text-black font-semibold rounded-xl hover:bg-white/90 transition-colors"
                 >
                   Save Name
                 </button>
