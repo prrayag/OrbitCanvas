@@ -6,21 +6,21 @@ Orbit helps product, design, and engineering teams brainstorm with deep AI assis
 
 ![Orbit Canvas Preview](./client/public/hero-mockup.png)
 
-## ✨ Core Features
+##  Core Features
 
-### 🌌 Spatial Ideation
+###  Spatial Ideation
 Effortless structuring, always visual, always connected.
 - **Infinite Pan & Zoom:** Never run out of space for your ideas.
 - **Visual Relationships:** Draw connections between disconnected concepts effortlessly using intuitive edges.
 - **Smart Node Snapping:** Keep your architectural diagrams and brainstorms perfectly aligned.
 
-### 🧠 Streaming AI (Powered by Gemini 1.5)
+### Streaming AI (Powered by Gemini 1.5)
 High-quality ideas that feel handcrafted, delivered in seconds.
 - **Context-Aware Generation:** AI autofills nodes by reading the context of parent nodes and relationships.
 - **Real-Time Streaming:** Watch Gemini branch your thoughts into a universe of sub-tasks, architectural components, or brainstorm ideas instantly.
 - **Customizable Actions:** Brainstorm, deconstruct, deep dive, or ask custom questions directly inside the canvas.
 
-### 🤝 Live Collaboration
+### Live Collaboration
 Absolute alignment across teams in real-time.
 - **Multiplayer State:** See changes from teammates instantly without refreshing.
 - **Live Cursors:** Track where everyone is working in real-time.
@@ -28,7 +28,7 @@ Absolute alignment across teams in real-time.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - **Framework:** React 18, Vite
@@ -46,7 +46,7 @@ Absolute alignment across teams in real-time.
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js (v18+ recommended)
